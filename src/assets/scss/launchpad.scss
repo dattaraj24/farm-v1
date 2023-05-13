@@ -1,0 +1,313 @@
+.floating-ship {
+  animation-name: floating-ship;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-left: 0;
+}
+
+@keyframes floating-ship {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 40px);
+  }
+  100% {
+    transform: translate(0, 0px);
+  }
+}
+
+.Launch_coming-soon {
+  transform: rotate(-8deg);
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.Launch_heading {
+  font-size: 85px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+}
+
+.launch-box {
+  position: relative;
+  border: 1px;
+  background: transparent;
+}
+
+.lun-box {
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin-bottom: 0 20px;
+}
+
+.launpad-bg {
+  background: url("../../images/coming/launchpad.webp");
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+.ship-img-n {
+  position: absolute;
+  left: 450px;
+}
+
+.start-img {
+  background: url("../../images/coming/launch-start.webp");
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.btn-white {
+  border: none;
+  color: rgb(224, 4, 239);
+  padding: 15px 35px;
+  border-radius: 10px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 28px;
+  transition: ease 5s;
+  background-color: #fff;
+  text-align: center;
+}
+
+.with {
+  text-align: center;
+  font-size: 50px;
+  color: #fff;
+  font-weight: 900;
+}
+
+.heading-ml {
+  font-size: 65px !important;
+  color: white;
+  text-align: center;
+  font-weight: 900;
+  padding-top: 25%;
+  padding-left: 50%;
+}
+
+.main-call {
+  padding-top: 5%;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 960px) and (min-width: 1140px) {
+  .main-call {
+    padding-top: 500px;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 800px) and (min-width: 600px) {
+  .launpad-bg {
+    // background: linear-gradient(94.96deg, #4b33b4 0.32%, #a64093 117.79%),
+    //   #1d1534;
+    // background-color: red;
+    background: url("../../images/coming/launchpad-m.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .mt-10 {
+    margin-top: 10px;
+  }
+
+  .mtl-100 {
+    margin-top: 100px;
+  }
+
+  .mt-150 {
+    margin-top: 150px;
+  }
+
+  .mt-200 {
+    margin-top: 200px;
+  }
+
+  .pt-200 {
+    padding-top: 200px;
+  }
+
+  .mb-50 {
+    margin-bottom: 50px;
+  }
+
+  .d-none {
+    display: block !important;
+  }
+
+  .pos {
+    position: absolute;
+    top: 200px !important;
+  }
+
+  .m-none {
+    display: none;
+  }
+
+  .ship-ms {
+    width: 100%;
+  }
+
+  .heading-ml {
+    text-align: center;
+    font-size: 45px !important;
+    color: #fff;
+    font-weight: 900;
+    padding-top: 0;
+    padding-left: 0;
+  }
+
+  .main-call {
+    padding-top: 70%;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 481px) {
+  .launpad-bg {
+    // background: linear-gradient(94.96deg, #4b33b4 0.32%, #a64093 117.79%),
+    //   #1d1534;
+    // background-color: red;
+    background: url("../../images/coming/launchpad-m.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .mt-10 {
+    margin-top: 10px;
+  }
+
+  .mtl-100 {
+    margin-top: 100px;
+  }
+
+  .mt-150 {
+    margin-top: 150px;
+  }
+
+  .mt-200 {
+    margin-top: 200px;
+  }
+
+  .pt-200 {
+    padding-top: 200px;
+  }
+
+  .mb-50 {
+    margin-bottom: 50px;
+  }
+
+  .d-none {
+    display: block !important;
+  }
+
+  .pos {
+    position: absolute;
+    top: 200px !important;
+  }
+
+  .m-none {
+    display: none;
+  }
+
+  .ship-ms {
+    width: 100%;
+  }
+
+  .heading-ml {
+    text-align: center;
+    font-size: 45px !important;
+    color: #fff;
+    font-weight: 900;
+    padding-top: 0;
+    padding-left: 0;
+  }
+
+  .main-call {
+    padding-top: 70%;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) and (min-width: 320px) {
+  .launpad-bg {
+    // background: linear-gradient(94.96deg, #4b33b4 0.32%, #a64093 117.79%),
+    //   #1d1534;
+    // background-color: red;
+    background: url("../../images/coming/launchpad-m.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .mt-10 {
+    margin-top: 10px;
+  }
+
+  .mtl-100 {
+    margin-top: 100px;
+  }
+
+  .mt-150 {
+    margin-top: 150px;
+  }
+
+  .mt-200 {
+    margin-top: 200px;
+  }
+
+  .pt-200 {
+    padding-top: 200px;
+  }
+
+  .mb-50 {
+    margin-bottom: 50px;
+  }
+
+  .d-none {
+    display: block !important;
+  }
+
+  .pos {
+    position: absolute;
+    top: 200px !important;
+  }
+
+  .m-none {
+    display: none;
+  }
+
+  .ship-ms {
+    width: 100%;
+  }
+
+  .heading-ml {
+    text-align: center;
+    font-size: 45px !important;
+    color: #fff;
+    font-weight: 900;
+    padding-top: 0;
+    padding-left: 0;
+  }
+
+  .main-call {
+    padding-top: 70%;
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,246 @@
+.floating-ship {
+  animation-name: floating-ship;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-left: 0;
+}
+
+@keyframes floating-ship {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 55px);
+  }
+  100% {
+    transform: translate(0, 0px);
+  }
+}
+.Launch_coming-soon {
+  transform: rotate(-8deg);
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.Launch_heading {
+  font-size: 85px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+}
+
+.launch-box {
+  position: relative;
+  border: 1px;
+  background: transparent;
+}
+
+.lun-box {
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin-bottom: 0 20px;
+}
+
+.m-el-bg {
+  background: url("../../images/coming/m-el-dorado-bg.webp");
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+.nft-over {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+}
+
+.ship-img {
+  position: absolute;
+}
+
+.start-img {
+  background: url("../../images/coming/launch-start.webp");
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.btn-white {
+  border: none;
+  color: rgb(224, 4, 239);
+  padding: 15px 35px;
+  border-radius: 10px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 28px;
+  transition: ease 5s;
+  background-color: #fff;
+  text-align: center;
+}
+
+.ml-175 {
+  margin-left: 175px;
+}
+
+.heading-m {
+  font-size: 65px !important;
+  color: white;
+  text-shadow: 6px 4px 7px #000000;
+  text-align: center;
+  font-weight: 900;
+}
+
+@media only screen and (max-width: 800px) and (min-width: 600px) {
+  .m-el-bg {
+    // background: linear-gradient(94.96deg, #3894F8 0.32%, #E6ACD2 117.79%),
+    //   #1D1E58;
+
+    background: url("../../images/coming/m-el-dorado-bg-m.webp");
+  }
+
+  .ml {
+    margin-left: 0px;
+  }
+
+  .mt-10 {
+    margin-top: 10px;
+  }
+
+  .mtl-100 {
+    margin-top: 100px;
+  }
+
+  .mtl-150 {
+    margin-top: 150px;
+  }
+
+  .mt-200 {
+    margin-top: 200px;
+  }
+
+  .mb-50 {
+    margin-bottom: 50px;
+  }
+
+  .d-none {
+    display: block !important;
+  }
+
+  .pos {
+    position: absolute;
+    top: 350px;
+  }
+
+  .heading-m {
+    font-size: 35px !important;
+    color: white;
+    text-shadow: 6px 4px 7px #000000;
+    text-align: center;
+    font-weight: 900;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 481px) {
+  .m-el-bg {
+    // background: linear-gradient(94.96deg, #3894F8 0.32%, #E6ACD2 117.79%),
+    //   #1D1E58;
+
+    background: url("../../images/coming/m-el-dorado-bg-m.webp");
+  }
+
+  .ml {
+    margin-left: 0px;
+  }
+
+  .mt-10 {
+    margin-top: 10px;
+  }
+
+  .mtl-100 {
+    margin-top: 100px;
+  }
+
+  .mtl-150 {
+    margin-top: 150px;
+  }
+
+  .mt-200 {
+    margin-top: 200px;
+  }
+
+  .mb-50 {
+    margin-bottom: 50px;
+  }
+
+  .d-none {
+    display: block !important;
+  }
+
+  .pos {
+    position: absolute;
+    top: 350px;
+  }
+
+  .heading-m {
+    font-size: 35px !important;
+    color: white;
+    text-shadow: 6px 4px 7px #000000;
+    text-align: center;
+    font-weight: 900;
+  }
+}
+
+@media only screen and (max-width: 480px) and (min-width: 320px) {
+  .m-el-bg {
+    // background: linear-gradient(94.96deg, #3894F8 0.32%, #E6ACD2 117.79%),
+    //   #1D1E58;
+    background: url("../../images/coming/m-el-dorado-bg-m.webp");
+  }
+
+  .ml {
+    margin-left: 0px;
+  }
+
+  .mt-10 {
+    margin-top: 10px;
+  }
+
+  .mtl-100 {
+    margin-top: 100px;
+  }
+
+  .mtl-150 {
+    margin-top: 150px;
+  }
+
+  .mt-200 {
+    margin-top: 200px;
+  }
+
+  .mb-50 {
+    margin-bottom: 50px;
+  }
+
+  .d-none {
+    display: block !important;
+  }
+
+  .pos {
+    position: absolute;
+    top: 350px;
+  }
+
+  .heading-m {
+    font-size: 35px !important;
+    color: white;
+    text-shadow: 6px 4px 7px #000000;
+    text-align: center;
+    font-weight: 900;
+  }
+}
