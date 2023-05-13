@@ -9,13 +9,28 @@ const Stake = async (pid) => {
     // const harvestHAndler = async (masterChefContract, pid, account) => {
     const masterChefAddress = "0x9c19eB54c759c9369C788D6554f08Bb6cAdab10d";
 
-    const web3Modal = new Web3Modal({
-        network: "mainnet", // optional
-        cacheProvider: false, // optional
-        providerOptions, // required
-    });
-
-    const provider = await web3Modal.connect();
+      // Connect to an Ethereum provider (e.g. MetaMask or Infura)
+      if (typeof window.ethereum !== 'undefined') {
+        // Use the injected Web3 provider
+        const web3 = new Web3(window.ethereum);
+        
+        // Request access to the user's MetaMask wallet
+        await window.ethereum.request({ method: 'eth_requestAccounts' });
+        
+        // Get the user's address
+        const accounts = await web3.eth.getAccounts();
+        const address = accounts[0];
+      
+        // Log the user's address
+        console.log(`Connected to wallet at address ${address}`);
+      } else {
+        // If Web3 is not injected, prompt the user to install MetaMask
+        alert('Please install MetaMask or use in a wallet app to use this dApp!');
+      }
+         
+      const weeb3 = new Web3(window.ethereum);
+      
+            const provider = await weeb3.currentProvider;
     const web3 = new Web3(provider);
     const accounts = await web3.eth.getAccounts();
     const account = accounts[0]

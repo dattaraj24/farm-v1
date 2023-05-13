@@ -40,6 +40,7 @@ export const ContextLp = createContext();
 
 function App() {
   const [objOne, setObjOne] = useState("");
+  const [connected, setconnected] = useState(false);
   const [objTwo, setObjTwo] = useState("");
   const [objThree, setObjThree] = useState("");
   const [web3Var, setWeb3] = useState("");
@@ -147,20 +148,32 @@ function App() {
   // all connectivity code starts===================================================
 
   const connect = async () => {
-    const web3Modal = new Web3Modal({
-      network: "mainnet", // optional
-      cacheProvider: false, // optional
-      providerOptions, // required
-    });
-    let wei = 1000000000000000000;
-
-    const provider = await web3Modal.connect();
-    const web3 = new Web3(provider);
+    if (typeof window.ethereum !== 'undefined') {
+      // Use the injected Web3 provider
+      const web3 = new Web3(window.ethereum);
+      
+      // Request access to the user's MetaMask wallet
+      await window.ethereum.request({ method: 'eth_requestAccounts' });
+      
+      // Get the user's address
+      const accounts = await web3.eth.getAccounts();
+      const address = accounts[0];
+    
+      // Log the user's address
+      console.log(`Connected to wallet at address ${address}`);
+    } else {
+      // If Web3 is not injected, prompt the user to install MetaMask
+      alert('Please install MetaMask or use in a wallet app to use this dApp!');
+    }
+       
+    const weeb3 = new Web3(window.ethereum);
+    
+          const provider = await weeb3.currentProvider;
     const ethersProvider = new providers.Web3Provider(provider);
     const userAddress = await ethersProvider.getSigner().getAddress();
     setWeb3(ethersProvider);
-    setWeb3My(web3);
-    const accounts = await web3.eth.getAccounts();
+    setWeb3My(weeb3);
+    const accounts = await weeb3.eth.getAccounts();
     const signer = ethersProvider.getSigner(userAddress);
     setEthSigner(signer);
     // Cookies.set("userAccountsAddress", accounts[0]);
@@ -233,6 +246,10 @@ function App() {
   };
 
   useEffect(() => {
+
+
+
+   
     async function dr() {
       const d = await UsePriceCakeBusd();
       const r = parseFloat(d).toFixed(6);
@@ -271,6 +288,7 @@ function App() {
       const d = JSON.parse(lq);
       setTotliquidity(d);
     }
+  
     defaultOperation();
     dr();
     gettvl();
@@ -295,7 +313,34 @@ function App() {
     setUserAccount(user);
   }, [userAccount]);
 
+  useEffect(() => {
+    async function start() {
+      if (typeof window.ethereum !== 'undefined') {
+        // Use the injected Web3 provider
+        const web3 = new Web3(window.ethereum);
+        
+        // Request access to the user's MetaMask wallet
+        await window.ethereum.request({ method: 'eth_requestAccounts' });
+        
+        // Get the user's address
+        const accounts = await web3.eth.getAccounts();
+        const address = accounts[0];
+        setconnected(true)
+      
+        // Log the user's address
+        console.log(`Connected to wallet at address ${address}`);
+      } else {
+        // If Web3 is not injected, prompt the user to install MetaMask
+        alert('Please install MetaMask in browser or use in a wallet app to use this dApp!');
+      }
+    }
+
+    start()
+  }, [!connected]);
+
   return (
+<>
+    {connected ? (
     <ContextOneApp.Provider
       value={{
         objOne: objOne,
@@ -346,6 +391,10 @@ function App() {
         </ContextLogout.Provider>
       </ContextTwoApp.Provider>
     </ContextOneApp.Provider>
+    ) :(
+      <h1 className="btn-connect">please reload your page if your on a wallet browser to connect your wallet</h1>
+    )}
+    </>
   );
 }
 
