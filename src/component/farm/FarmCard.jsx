@@ -91,7 +91,7 @@ const FarmCard = (props) => {
         console.log(`Connected to wallet at address ${address}`);
       } else {
         // If Web3 is not injected, prompt the user to install MetaMask
-        alert('Please install MetaMask or use in a wallet app to use this dApp!');
+        console.log('Please install MetaMask or use in a wallet app to use this dApp!');
       }
          
       const weeb3 = new Web3(window.ethereum);
@@ -192,7 +192,7 @@ const FarmCard = (props) => {
               console.log(`Connected to wallet at address ${address}`);
             } else {
               // If Web3 is not injected, prompt the user to install MetaMask
-              alert('Please install MetaMask or use in a wallet app to use this dApp!');
+              console.log('Please install MetaMask or use in a wallet app to use this dApp!');
             }
                
             const weeb3 = new Web3(window.ethereum);
@@ -257,7 +257,7 @@ const FarmCard = (props) => {
         console.log(`Connected to wallet at address ${address}`);
       } else {
         // If Web3 is not injected, prompt the user to install MetaMask
-        alert('Please install MetaMask or use in a wallet app to use this dApp!');
+        console.log('Please install MetaMask or use in a wallet app to use this dApp!');
       }
          
       const weeb3 = new Web3(window.ethereum);
@@ -329,7 +329,7 @@ const FarmCard = (props) => {
         console.log(`Connected to wallet at address ${address}`);
       } else {
         // If Web3 is not injected, prompt the user to install MetaMask
-        alert('Please install MetaMask or use in a wallet app to use this dApp!');
+        console.log('Please install MetaMask or use in a wallet app to use this dApp!');
       }
          
       const weeb3 = new Web3(window.ethereum);
@@ -385,7 +385,7 @@ const FarmCard = (props) => {
         console.log(`Connected to wallet at address ${address}`);
       } else {
         // If Web3 is not injected, prompt the user to install MetaMask
-        alert('Please install MetaMask or use in a wallet app to use this dApp!');
+        console.log('Please install MetaMask or use in a wallet app to use this dApp!');
       }
          
       const weeb3 = new Web3(window.ethereum);
@@ -453,7 +453,7 @@ const FarmCard = (props) => {
     e.preventDefault();
     setLoad(true);
     try {
-      const done = await unStakeHandler(pid, unStackValue);
+      const done = await unStakeHandler(4, unStackValue);
       setLoad(false);
       setShowUnStack(false)
     } catch (error) {
@@ -461,6 +461,10 @@ const FarmCard = (props) => {
       setShowUnStack(false)
     }
   };
+
+  function handleInputChange(event) {
+    setUnStackValue(event.target.value);
+  }
 
   return (
     <>
@@ -718,23 +722,12 @@ const FarmCard = (props) => {
                         value={stackValue}
                         onChange={(e) => {
                           setStackValue(e.target.value);
+                          console.log(stackValue)
                         }}
                         style={{ width: "40%", marginLeft: "10px" }}
                       />
                       {props.title}
-                      <span
-                        className="blue-box text-white"
-                        onClick={() => {
-                          setStackValue(stackValueN);
-                        }}
-                        style={{
-                          width: "10%",
-                          cursor: "pointer",
-                          marginRight: "30px",
-                        }}
-                      >
-                        Max
-                      </span>
+                    
                     </div>
                     <div className="mb-2 mt-3 text-end">
                       {new BigNumber(stackValue || 0)
@@ -747,7 +740,7 @@ const FarmCard = (props) => {
                 <Modal.Footer>
                   {load ? (
                     <button to="/" className="blue-box text-white" disabled>
-                      Panding
+                      Pending
                     </button>
                   ) : (
                     <button to="/" className="blue-box text-white">
@@ -760,9 +753,9 @@ const FarmCard = (props) => {
 
             <Modal show={showUnStack} onHide={handleCloseUnStack} size="md">
               <Modal.Header closeButton>
-                <div>Deposit {props.title} Tokens</div>
+                <div>Unstake {props.title} Tokens</div>
               </Modal.Header>
-              <form onSubmit={handleSubmit2}>
+              <form onSubmit={ handleSubmit2}>
                 <Modal.Body>
                   <div className="row justify-content-center">
                     <div className="text-end">
@@ -784,23 +777,13 @@ const FarmCard = (props) => {
                         value={unStackValue}
                         onChange={(e) => {
                           setUnStackValue(e.target.value);
+                          console.log(stackValue)
                         }}
+                        
                         style={{ width: "40%", marginLeft: "10px" }}
                       />
                       {props.title}
-                      <span
-                        className="blue-box text-white"
-                        onClick={() => {
-                          setUnStackValue(props.stakedBalance);
-                        }}
-                        style={{
-                          width: "10%",
-                          cursor: "pointer",
-                          marginRight: "30px",
-                        }}
-                      >
-                        Max
-                      </span>
+                    
                     </div>
                     <div className="float-end mb-2 mt-3 text-end">
                       {new BigNumber(unStackValue || 0)
@@ -813,7 +796,7 @@ const FarmCard = (props) => {
                 <Modal.Footer>
                   {load ? (
                     <button to="/" className="blue-box text-white" disabled>
-                      Panding
+                      Pending
                     </button>
                   ) : (
                     <button to="/" className="blue-box text-white">

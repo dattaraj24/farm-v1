@@ -12,7 +12,7 @@ import Cookies from "js-cookie";
 
 // import bsc from "../../images/icon/bsc-scan.svg"
 
-const Nav = () => {
+const Navdefault = () => {
   const [show, setShow] = useState(false);
   const [a, setA] = useState(false);
   const access = useContext(ContextOneApp);
@@ -58,7 +58,7 @@ const Nav = () => {
           <Link to="/pool">Flavour Pool</Link>
         </li>
         <li>
-        <a target="_parent" href="https://staking.milkshakeswap.finance" >
+        <a href="https://staking.milkshakeswap.finance" target="_parent">
                 staking
               </a>
         </li>
@@ -78,23 +78,7 @@ const Nav = () => {
             </li>
           </ul>
         </li>
-        <li>
-          {userAccount ? (
-            <div className="d-flex">
-              {/* <span className="account">{userAccount}</span> */}
-              <span className="account" onClick={handleShow}>
-                {userAccount}
-              </span>
-              <span onClick={logOut} className="logout">
-                <IoIosLogOut />
-              </span>
-            </div>
-          ) : (
-            <button className="btn-connect" onClick={access2}>
-              Connect
-            </button>
-          )}
-        </li>
+       
       </ul>
       <Modal show={show} onHide={handleClose} contentClassName="bg">
         <Modal.Header closeButton>
@@ -136,4 +120,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default Navdefault;

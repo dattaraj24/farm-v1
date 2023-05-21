@@ -34,7 +34,7 @@ const usePoolFromPidData = (farms) => {
 export const UsePriceCakeBusd = async () => {
     // const farm = useFarmFromPid(pid)
     const farm = usePoolFromPidData(await farmFetcher())
-    return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
+    return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : "fetching"
 
     // return new BigNumber(3.136)
 }

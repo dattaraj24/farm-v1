@@ -47,10 +47,10 @@ const MobileFooter = () => {
           </Link>
         </li>
         <li className="mobile-nav-li">
-          <Link to="/next-draw">
+            <a href="https://staking.milkshakeswap.finance" target="_blank">
             <img src={lotto} alt="home" className="menu-img" />
-            <div style={{ fontSize: "8px" }}>Lotto</div>
-          </Link>
+            <div style={{ fontSize: "8px" }}>Staking</div>
+            </a>
         </li>
         <li style={{ cursor: "pointer" }} className="mobile-nav-li">
           <span onClick={openNewHandle}>
@@ -64,12 +64,12 @@ const MobileFooter = () => {
       {open ? (
         <nav className="mobile-nav2">
           <li className="open-li">
-            <a href="http://v2exchange.cytogenepathlab.in/#/swap" target="_blank">
+            <a href="https://incredible-pithivier-a342b3.netlify.app/#/swap" target="_blank">
               Exchange
             </a>
           </li>
           <li className="open-li">
-            <a href="http://v2exchange.cytogenepathlab.in/#/pool" target="_blank">
+            <a href="https://incredible-pithivier-a342b3.netlify.app/#/pool" target="_blank">
               Liquidity
             </a>
           </li>

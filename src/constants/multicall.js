@@ -29,4 +29,62 @@ const multicall = async (abi, calls) => {
     return res
 }
 
+export const multicall1 = async (abi, calls) => {
+    //   const web3 = getWeb3()
+    // setting web3 object
+    // let provider = "https://bsc.getblock.io/90aa5e9f-0310-44c6-b6a4-83e4873d5c24/mainnet/";
+    // let provider = "https://bsc-dataseed..org/";
+    // let provider2 = "https://bsc-dataseed1.defibit.io";
+    // const web3 = new Web3(provider);
+    const web3 = new Web3("https://bsc-dataseed1.defibit.io")
+
+    const multi = new web3.eth.Contract(MultiCallAbi, mulltiCallAddresses[56])
+    const itf = new Interface(abi)
+
+    const calldata = calls.map((call) => [call.address.toLowerCase(), itf.encodeFunctionData(call.name, call.params)])
+    const { returnData } = await multi.methods.aggregate(calldata).call()
+    const res = returnData.map((call, i) => itf.decodeFunctionResult(calls[i].name, call))
+
+    return res
+}
+
+export const multicall2 = async (abi, calls) => {
+    //   const web3 = getWeb3()
+    // setting web3 object
+    // let provider = "https://bsc.getblock.io/90aa5e9f-0310-44c6-b6a4-83e4873d5c24/mainnet/";
+    // let provider = "https://bsc-dataseed..org/";
+    // let provider2 = "https://bsc-dataseed1.defibit.io";
+    // const web3 = new Web3(provider);
+    const web3 = new Web3("https://bsc-dataseed1.binance.org")
+
+    const multi = new web3.eth.Contract(MultiCallAbi, mulltiCallAddresses[56])
+    const itf = new Interface(abi)
+
+    const calldata = calls.map((call) => [call.address.toLowerCase(), itf.encodeFunctionData(call.name, call.params)])
+    const { returnData } = await multi.methods.aggregate(calldata).call()
+    const res = returnData.map((call, i) => itf.decodeFunctionResult(calls[i].name, call))
+
+    return res
+}
+
+export const multicall3 = async (abi, calls) => {
+    //   const web3 = getWeb3()
+    // setting web3 object
+    // let provider = "https://bsc.getblock.io/90aa5e9f-0310-44c6-b6a4-83e4873d5c24/mainnet/";
+    // let provider = "https://bsc-dataseed..org/";
+    // let provider2 = "https://bsc-dataseed1.defibit.io";
+    // const web3 = new Web3(provider);
+    const web3 = new Web3("https://bsc-dataseed1.defibit.io")
+
+    const multi = new web3.eth.Contract(MultiCallAbi, mulltiCallAddresses[56])
+    const itf = new Interface(abi)
+
+    const calldata = calls.map((call) => [call.address.toLowerCase(), itf.encodeFunctionData(call.name, call.params)])
+    const { returnData } = await multi.methods.aggregate(calldata).call()
+    const res = returnData.map((call, i) => itf.decodeFunctionResult(calls[i].name, call))
+
+    return res
+}
+
 export default multicall
+

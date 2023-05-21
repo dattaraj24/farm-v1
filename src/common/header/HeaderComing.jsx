@@ -51,7 +51,7 @@ const Header = () => {
                       <ul className="axil-submenu">
                         <li>
                           <a
-                            href="http://v2exchange.cytogenepathlab.in/#/swap"
+                            href="https://incredible-pithivier-a342b3.netlify.app/#/swap"
                             target="_blank"
                           >
                             Exchange
@@ -59,7 +59,7 @@ const Header = () => {
                         </li>
                         <li>
                           <a
-                            href="http://v2exchange.cytogenepathlab.in/#/pool"
+                            href="https://incredible-pithivier-a342b3.netlify.app/#/pool"
                             target="_blank"
                           >
                             Liquidity
@@ -78,9 +78,9 @@ const Header = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/next-draw" className="text-white">
-                        Lotto
-                      </Link>
+                    <a href="https://staking.milkshakeswap.finance" target="_blank">
+                Staking
+              </a>
                     </li>
                     <li className="menu-item-has-children">
                       <Link to="#" className="text-white">

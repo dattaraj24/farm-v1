@@ -2,6 +2,8 @@ import BigNumber from 'bignumber.js'
 import erc20 from './abis/erc20.json'
 import masterchefABI from './abis/masterchef.json'
 import multicall from './multicall'
+import {multicall1}from './multicall'
+import  {  multicall2, multicall3 } from './multicall'
 import { getMasterChefAddress } from './utils/addressHelper'
 import farmsConfig from './farms'
 import { QuoteToken } from './types'
@@ -58,7 +60,7 @@ const fetchFarms = async () => {
         lpTotalSupply,
         tokenDecimals,
         quoteTokenDecimals,
-      ] = await multicall(erc20, calls)
+      ] = await multicall1(erc20, calls)
 
       let tokenAmount
       let lpTotalInQuoteToken
@@ -95,7 +97,7 @@ const fetchFarms = async () => {
         }
       }
 
-      const [info, totalAllocPoint, eggPerBlock] = await multicall(masterchefABI, [
+      const [info, totalAllocPoint, eggPerBlock] = await multicall2(masterchefABI, [
         {
           address: getMasterChefAddress(),
           name: 'poolInfo',

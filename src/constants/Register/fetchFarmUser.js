@@ -1,7 +1,8 @@
 import BigNumber from 'bignumber.js'
 import erc20ABI from '../abis/erc20.json'
 import masterchefABI from '../abis/masterchef.json'
-import multicall from '../multicall'
+import multicall, { multicall1 } from '../multicall'
+import  { multicall2, multicall3 } from '../multicall'
 import farmsConfig from '../farms'
 import { getMasterChefAddress } from '../utils/addressHelper'
 
@@ -15,7 +16,7 @@ export const fetchFarmUserAllowances = async (account) => {
     return { address: lpContractAddress, name: 'allowance', params: [account, masterChefAdress] }
   })
 
-  const rawLpAllowances = await multicall(erc20ABI, calls)
+  const rawLpAllowances = await multicall1(erc20ABI, calls)
   const parsedLpAllowances = rawLpAllowances.map((lpBalance) => {
     return new BigNumber(lpBalance).toJSON()
   })
@@ -32,7 +33,7 @@ export const fetchFarmUserTokenBalances = async (account) => {
     }
   })
 
-  const rawTokenBalances = await multicall(erc20ABI, calls)
+  const rawTokenBalances = await multicall2(erc20ABI, calls)
   const parsedTokenBalances = rawTokenBalances.map((tokenBalance) => {
     return new BigNumber(tokenBalance).toJSON()
   })
@@ -50,7 +51,7 @@ export const fetchFarmUserStakedBalances = async (account) => {
     }
   })
 
-  const rawStakedBalances = await multicall(masterchefABI, calls)
+  const rawStakedBalances = await multicall3(masterchefABI, calls)
   const parsedStakedBalances = rawStakedBalances.map((stakedBalance) => {
     return new BigNumber(stakedBalance[0]._hex).toJSON()
   })
@@ -68,7 +69,7 @@ export const fetchFarmUserEarnings = async (account) => {
     }
   })
 
-  const rawEarnings = await multicall(masterchefABI, calls)
+  const rawEarnings = await multicall1(masterchefABI, calls)
   const parsedEarnings = rawEarnings.map((earnings) => {
     return new BigNumber(earnings).toJSON()
   })

@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import Tilty from "react-tilty";
 import { ContextOneApp } from "../../App";
-
+import cakeAbi from './../../abi/cake.json';
+import { ethers } from "ethers";
+import masterChefAbi from './../../abi/masterchef.json';
 const HomeBanner = () => {
   const [userBalance, setUserBalance] = useState(0);
   const [userMilkHarvest, setUserMilkHarvest] = useState(0);
@@ -12,10 +14,16 @@ const HomeBanner = () => {
   let wei = 1000000000000000000;
 
   // console.log(userAccount,"userAccount")
-
   const getBalanceButton = async (userAccount) => {
-    if (objOne) {
-      const userBalance = await objOne.balanceOf(userAccount);
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const ethProvider = new ethers.providers.JsonRpcProvider(
+      "https://bsc-dataseed2.ninicoin.io"
+    );
+
+    const timelockContract = new ethers.Contract("0xc9bcf3f71e37579a4a42591b09c9dd93dfe27965", cakeAbi, ethProvider);
+
+      const userBalance = await timelockContract.balanceOf(userAccount);
       const userBalanceObj = userBalance;
       const data = {
         userBalanceObj: userBalanceObj,
@@ -23,12 +31,17 @@ const HomeBanner = () => {
       }; 
       localStorage.setItem("userBalance", JSON.stringify(data));
       setUserBalance(userBalance / wei);
-    }
+  
   };
+
 
   const getMilkHarvest = async (userAccount) => {
     if (objOne) {
-      let response = await objTwo.pendingMILK(4, userAccount);
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+  
+      const timelockContract = new ethers.Contract("0x9c19eB54c759c9369C788D6554f08Bb6cAdab10d", masterChefAbi, signer);
+      let response = await timelockContract.pendingMILK(4, userAccount);
       if (response) {
         const userb = response / wei;
         const data = {
@@ -45,11 +58,12 @@ const HomeBanner = () => {
 
   // console.log(userMilkHarvest,"response PendingMilk")
   useEffect(() => {
+
     if (userAccount) {
       getBalanceButton(userAccount);
       getMilkHarvest(userAccount);
     }
-  }, [userAccount]);
+  }, []);
 
   // console.log(userBalance,"userBalance")
 
@@ -71,7 +85,7 @@ const HomeBanner = () => {
                 <div className="row mt-6 mt-5">
                   <div className="col-lg-12 d-flex j-center">
                     <a
-                      href="http://v2exchange.cytogenepathlab.in/#/swap"
+                      href="https://cheery-cupcake-fba307.netlify.app/#/swap"
                       className="btn-banner"
                       target="_blank"
                       rel="noreferrer"

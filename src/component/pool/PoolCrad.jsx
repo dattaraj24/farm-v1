@@ -90,7 +90,7 @@ const FarmCard = (props) => {
           console.log(`Connected to wallet at address ${address}`);
         } else {
           // If Web3 is not injected, prompt the user to install MetaMask
-          alert('Please install MetaMask or use in a wallet app to use this dApp!');
+          console.log('Please install MetaMask or use in a wallet app to use this dApp!');
         }
            
         const weeb3 = new Web3(window.ethereum);
@@ -173,7 +173,7 @@ const FarmCard = (props) => {
             console.log(`Connected to wallet at address ${address}`);
           } else {
             // If Web3 is not injected, prompt the user to install MetaMask
-            alert('Please install MetaMask or use in a wallet app to use this dApp!');
+            console.log('Please install MetaMask or use in a wallet app to use this dApp!');
           }
              
           const weeb3 = new Web3(window.ethereum);
@@ -245,7 +245,7 @@ const FarmCard = (props) => {
           console.log(`Connected to wallet at address ${address}`);
         } else {
           // If Web3 is not injected, prompt the user to install MetaMask
-          alert('Please install MetaMask or use in a wallet app to use this dApp!');
+          console.log('Please install MetaMask or use in a wallet app to use this dApp!');
         }
            
         const weeb3 = new Web3(window.ethereum);
@@ -283,12 +283,7 @@ const FarmCard = (props) => {
         masterChefAddress
       );
 
-      const unstakeResEst = await masterChefContract.methods
-        .withdraw(
-          pid,
-          new BigNumber(amount).times(new BigNumber(10).pow(18)).toString()
-        )
-        .estimateGas({ from: userAccount });
+
       // console.log(await unstakeResEst, "unstakeRes");
 
       const unstakeRes = await masterChefContract.methods
@@ -314,7 +309,7 @@ const FarmCard = (props) => {
             console.log(`Connected to wallet at address ${address}`);
           } else {
             // If Web3 is not injected, prompt the user to install MetaMask
-            alert('Please install MetaMask or use in a wallet app to use this dApp!');
+            console.log('Please install MetaMask or use in a wallet app to use this dApp!');
           }
              
           const weeb3 = new Web3(window.ethereum);
@@ -376,7 +371,7 @@ const FarmCard = (props) => {
           console.log(`Connected to wallet at address ${address}`);
         } else {
           // If Web3 is not injected, prompt the user to install MetaMask
-          alert('Please install MetaMask or use in a wallet app to use this dApp!');
+          console.log('Please install MetaMask or use in a wallet app to use this dApp!');
         }
            
         const weeb3 = new Web3(window.ethereum);
@@ -427,7 +422,7 @@ const FarmCard = (props) => {
   let pid = props.pid;
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+ 
     setLoad(true);
     try {
       const done = await stackHandler(pid, stackValue);
@@ -441,7 +436,7 @@ const FarmCard = (props) => {
   };
 
   const handleSubmit2 = async (e) => {
-    e.preventDefault();
+
     setLoad(true);
     try {
       const done = await unStakeHandler(pid, unStackValue);

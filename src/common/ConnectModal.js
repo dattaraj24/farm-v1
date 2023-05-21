@@ -37,7 +37,7 @@ import lotteryAbi from "../abi/lottery.json"
                 console.log(`Connected to wallet at address ${address}`);
               } else {
                 // If Web3 is not injected, prompt the user to install MetaMask
-                alert('Please install MetaMask or use in a wallet app to use this dApp!');
+                console.log('Please install MetaMask or use in a wallet app to use this dApp!');
               }
                  
               const weeb3 = new Web3(window.ethereum);

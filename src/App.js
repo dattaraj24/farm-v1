@@ -29,6 +29,7 @@ import { ethers, providers } from "ethers";
 import NFT from "./pages/NFT";
 import Launchpad from "./pages/Launchpad";
 import Meldorado from "./pages/Meldorado";
+import Deafult from "./pages/deafult";
 
 export const ContextOneApp = createContext();
 export const ContextTwoApp = createContext();
@@ -40,7 +41,7 @@ export const ContextLp = createContext();
 
 function App() {
   const [objOne, setObjOne] = useState("");
-  const [connected, setconnected] = useState(false);
+  const [connected, setconnected] = useState(true);
   const [objTwo, setObjTwo] = useState("");
   const [objThree, setObjThree] = useState("");
   const [web3Var, setWeb3] = useState("");
@@ -66,14 +67,17 @@ function App() {
 
   const defaultOperation = async () => {
     let wei = 1000000000000000000;
+    const weeb3 = new Web3(window.ethereum);
+
 
     const ethProvider = new ethers.providers.JsonRpcProvider(
-      "https://bsc-dataseed1.ninicoin.io"
+      "https://bsc-dataseed2.ninicoin.io"
     );
 
+    
+
+
     const ethContract = new ethers.Contract(milkAddress, cakeAbi, ethProvider);
-
-
     setObjOne(ethContract);
 
     const d = await UsePriceCakeBusd();
@@ -145,6 +149,150 @@ function App() {
     setBnBalance(burnedBalance2);
   };
 
+
+
+  const fetchstats = async () => {
+    
+  const defaultOperation1 = async () => {
+    let wei = 1000000000000000000;
+    const weeb3 = new Web3(window.ethereum);
+
+
+    const ethProvider = new ethers.providers.JsonRpcProvider(
+      "https://bsc-dataseed2.ninicoin.io"
+    );
+
+
+
+    const ethContract = new ethers.Contract(milkAddress, cakeAbi, ethProvider);
+    setObjOne(ethContract);
+
+    const d = await UsePriceCakeBusd();
+    const r = parseFloat(d).toFixed(6);
+    setPrice(r);
+
+    //--------- contract two
+    const ethContract2 = new ethers.Contract(
+      masterChefAddress,
+      masterChefAbi,
+      ethProvider
+    );
+    // console.log(ethContract, "ethContract")
+
+    setObjTwo(ethContract2);
+
+    //--------- contract three
+
+    const ethContract3 = new ethers.Contract(
+      lotteryAddress,
+      lotteryAbi,
+      ethProvider
+    );
+    setObjThree(ethContract3);
+
+    //stats
+    // const burnedBalance = await milkContract.methods
+    //   .balanceOf("0x000000000000000000000000000000000000dEaD")
+    //   .call();
+    const burnedBalance = await ethContract.balanceOf(
+      "0x000000000000000000000000000000000000dEaD"
+    );
+
+    // const response1 = await milkContract.methods.totalSupply().call();
+    const response1 = await ethContract.totalSupply();
+
+    const _finalTSupply = Math.round(response1 / wei);
+    const finalTSupply = _finalTSupply;
+    const totalSupply = Math.round(response1 / wei);
+    const burnedBalance2 = Math.round(burnedBalance / wei);
+
+    const circulate2 = totalSupply - burnedBalance / wei;
+    const circulateSupply = Math.ceil(circulate2);
+    const marketCap2 = circulateSupply * d;
+    const marketCap = Math.round(marketCap2);
+
+    if (circulateSupply) {
+      localStorage.setItem("circulateSupply", circulateSupply);
+      setSupply(circulateSupply);
+    }
+
+    if (marketCap) {
+      localStorage.setItem("marketCap", marketCap);
+      setMarketSupply(marketCap);
+    }
+
+    if (finalTSupply) {
+      localStorage.setItem("finalTSupply", finalTSupply);
+      setTotalSupply(finalTSupply);
+    }
+
+    if (burnedBalance2) {
+      localStorage.setItem("burnedBalance2", burnedBalance2);
+      setBnBalance(burnedBalance2);
+    }
+    setSupply(circulateSupply);
+    setMarketSupply(marketCap);
+    setTotalSupply(finalTSupply);
+    setBnBalance(burnedBalance2);
+  };
+
+    async function dr() {
+      const d = await UsePriceCakeBusd();
+      const r = parseFloat(d).toFixed(6);
+      if (r) {
+        localStorage.setItem("milkprice", r);
+        setPrice(r);
+      } else {
+        setPrice(0);
+      }
+      setPrice(r);
+    }
+    async function gettvl() {
+      const value = await MainTvlFetcher();
+      if (value) {
+        localStorage.setItem("tvl", value[0]);
+        localStorage.setItem("liquidit", JSON.stringify(value[1]));
+        setTvl(value[0]);
+        setTotliquidity(value[1]);
+      } else {
+        setTvl(40000);
+      }
+      setTvl(value[0]);
+      setTotliquidity(value[1]);
+    }
+   
+  
+  
+  
+    const pr = localStorage.getItem("milkprice");
+    const tv = localStorage.getItem("tvl");
+    const lq = localStorage.getItem("liquidit");
+    if (pr) {
+      setPrice(pr);
+    }
+    if (tv) {
+      setTvl(tv);
+    }
+    if (lq) {
+      const d = JSON.parse(lq);
+      setTotliquidity(d);
+    }
+  
+    defaultOperation1()
+    dr();
+    gettvl();
+    const cr = localStorage.getItem("circulateSupply");
+    const mr = localStorage.getItem("marketCap");
+    const ft = localStorage.getItem("finalTSupply");
+    const gt = localStorage.getItem("burnedBalance2");
+    if (cr) {
+      setSupply(cr);
+      setMarketSupply(mr);
+      setTotalSupply(ft);
+      setBnBalance(gt);
+    }
+  }
+
   // all connectivity code starts===================================================
 
   const connect = async () => {
@@ -161,10 +309,7 @@ function App() {
     
       // Log the user's address
       console.log(`Connected to wallet at address ${address}`);
-    } else {
-      // If Web3 is not injected, prompt the user to install MetaMask
-      alert('Please install MetaMask or use in a wallet app to use this dApp!');
-    }
+    } 
        
     const weeb3 = new Web3(window.ethereum);
     
@@ -245,63 +390,9 @@ function App() {
     setLptoken(a);
   };
 
+
   useEffect(() => {
-
-
-
-   
-    async function dr() {
-      const d = await UsePriceCakeBusd();
-      const r = parseFloat(d).toFixed(6);
-      if (r) {
-        localStorage.setItem("milkprice", r);
-        setPrice(r);
-      } else {
-        setPrice(0);
-      }
-      setPrice(r);
-    }
-
-    async function gettvl() {
-      const value = await MainTvlFetcher();
-      if (value) {
-        localStorage.setItem("tvl", value[0]);
-        localStorage.setItem("liquidit", JSON.stringify(value[1]));
-        setTvl(value[0]);
-        setTotliquidity(value[1]);
-      } else {
-        setTvl(40000);
-      }
-      setTvl(value[0]);
-      setTotliquidity(value[1]);
-    }
-    const pr = localStorage.getItem("milkprice");
-    const tv = localStorage.getItem("tvl");
-    const lq = localStorage.getItem("liquidit");
-    if (pr) {
-      setPrice(pr);
-    }
-    if (tv) {
-      setTvl(tv);
-    }
-    if (lq) {
-      const d = JSON.parse(lq);
-      setTotliquidity(d);
-    }
-  
-    defaultOperation();
-    dr();
-    gettvl();
-    const cr = localStorage.getItem("circulateSupply");
-    const mr = localStorage.getItem("marketCap");
-    const ft = localStorage.getItem("finalTSupply");
-    const gt = localStorage.getItem("burnedBalance2");
-    if (cr) {
-      setSupply(cr);
-      setMarketSupply(mr);
-      setTotalSupply(ft);
-      setBnBalance(gt);
-    }
+    fetchstats()
   }, []);
 
   useEffect(() => {
@@ -314,33 +405,25 @@ function App() {
   }, [userAccount]);
 
   useEffect(() => {
-    async function start() {
-      if (typeof window.ethereum !== 'undefined') {
-        // Use the injected Web3 provider
-        const web3 = new Web3(window.ethereum);
-        
-        // Request access to the user's MetaMask wallet
-        await window.ethereum.request({ method: 'eth_requestAccounts' });
-        
-        // Get the user's address
-        const accounts = await web3.eth.getAccounts();
-        const address = accounts[0];
-        setconnected(true)
+  
+  
+    
+   
+    if (typeof window.ethereum !== 'undefined') {
+      // Use the injected Web3 provider
       
-        // Log the user's address
-        console.log(`Connected to wallet at address ${address}`);
-      } else {
-        // If Web3 is not injected, prompt the user to install MetaMask
-        alert('Please install MetaMask in browser or use in a wallet app to use this dApp!');
-      }
-    }
+      
+      connect()
+     
+      setconnected(false)
+    } 
 
-    start()
-  }, [!connected]);
+
+  }, [connected]);
 
   return (
 <>
-    {connected ? (
+    {!connected ? (
     <ContextOneApp.Provider
       value={{
         objOne: objOne,
@@ -392,7 +475,58 @@ function App() {
       </ContextTwoApp.Provider>
     </ContextOneApp.Provider>
     ) :(
-      <h1 className="btn-connect">please reload your page if your on a wallet browser to connect your wallet</h1>
+     <>
+         <ContextOneApp.Provider
+      value={{
+        objOne: objOne,
+        objTwo: objTwo,
+        objThree: objThree,
+        userAccount: userAccount,
+        web3Var: web3Var,
+        tSupply: tSupply,
+        cSupply: cSupply,
+        mcSupply: mcSupply,
+        bnBalance: bnBalance,
+        tvl: tvl,
+        ethSigner: ethSigner,
+        web3My: web3My,
+      }}
+    >
+      <ContextTwoApp.Provider value={connect}>
+        <ContextLogout.Provider value={logOut}>
+          <ContextContractCreation.Provider value={contractObjCreator}>
+            <ContextOnLoad.Provider value={defaultOperation}>
+              <ContextPrice.Provider value={price}>
+                <ContextLp.Provider
+                  value={{
+                    lpTokens2: lpTokens,
+                    totliquidity2: totliquidity,
+                    userlpTokens: userlpTokens,
+                    isregistered: isregistered,
+                  }}
+                >
+                  <Router>
+                    <Routes>
+                      <Route path="/" element={<Deafult />} />
+                      <Route path="/farm" element={<Farm />} />
+                      <Route path="/pool" element={<Pool />} />
+                      <Route path="/next-draw" element={<Lottery />} />
+                      <Route path="/post-draw" element={<PostDraw />} />
+                      <Route path="/dra" element={<Dra />} />
+                      <Route path="/launchpad" element={<Launchpad />} />
+                      <Route path="/nft-marketplace" element={<NFT />} />
+                      <Route path="/m-el-dorado" element={<Meldorado />} />
+                      <Route path="/404" element={<ErrorPage />} />
+                    </Routes>
+                  </Router>
+                </ContextLp.Provider>
+              </ContextPrice.Provider>
+            </ContextOnLoad.Provider>
+          </ContextContractCreation.Provider>
+        </ContextLogout.Provider>
+      </ContextTwoApp.Provider>
+    </ContextOneApp.Provider>
+     </>
     )}
     </>
   );

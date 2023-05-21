@@ -14,7 +14,7 @@ const Stat = () => {
 
   useEffect(() => {    
     onLoadCtx();
-  }, [onLoadCtx]);
+  }, []);
 
   return (
     <>
