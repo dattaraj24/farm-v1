@@ -1,0 +1,9 @@
+[[redirects]]
+from = "/*"
+to = "index.html"
+status = 200
+
+[[redirects]]
+from = "/swap"
+to = "https://incredible-pithivier-a342b3.netlify.app/#/swap"
+status = 200

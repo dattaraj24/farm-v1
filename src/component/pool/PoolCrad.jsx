@@ -422,7 +422,7 @@ const FarmCard = (props) => {
   let pid = props.pid;
 
   const handleSubmit = async (e) => {
- 
+    e.preventDefault();
     setLoad(true);
     try {
       const done = await stackHandler(pid, stackValue);
@@ -436,7 +436,7 @@ const FarmCard = (props) => {
   };
 
   const handleSubmit2 = async (e) => {
-
+    e.preventDefault();
     setLoad(true);
     try {
       const done = await unStakeHandler(pid, unStackValue);
@@ -448,6 +448,14 @@ const FarmCard = (props) => {
       setShowUnStack(false);
     }
   };
+
+  function handleInputChange(event) {
+    setUnStackValue(event.target.value);
+  }
+
+  function handleInputChange2(event) {
+    setStackValue(event.target.value);
+  }
 
   props.data("data");
 
@@ -705,7 +713,6 @@ const FarmCard = (props) => {
                       <input
                         type="number"
                         class="form-control"
-                        placeholder="0"
                         value={stackValue}
                         onChange={(e) => {
                           setStackValue(e.target.value);
@@ -713,19 +720,7 @@ const FarmCard = (props) => {
                         style={{ width: "40%", marginLeft: "10px" }}
                       />
                       {props.title}
-                      <span
-                        className="blue-box text-white"
-                        onClick={() => {
-                          setStackValue(stackValueN);
-                        }}
-                        style={{
-                          width: "10%",
-                          cursor: "pointer",
-                          marginRight: "30px",
-                        }}
-                      >
-                        Max
-                      </span>
+                     
                     </div>
                     <div className="text-end mb-2 mt-3">
                       {new BigNumber(stackValue || 0)
@@ -738,7 +733,7 @@ const FarmCard = (props) => {
                 <Modal.Footer>
                   {load ? (
                     <button to="/" className="blue-box text-white" disabled>
-                      Panding
+                      Pending
                     </button>
                   ) : (
                     <button to="/" className="blue-box text-white">
@@ -771,7 +766,7 @@ const FarmCard = (props) => {
                       <input
                         type="number"
                         class="form-control"
-                        placeholder="0"
+
                         value={unStackValue}
                         onChange={(e) => {
                           setUnStackValue(e.target.value);
@@ -779,32 +774,15 @@ const FarmCard = (props) => {
                         style={{ width: "40%", marginLeft: "10px" }}
                       />
                       {props.title}
-                      <span
-                        className="blue-box text-white"
-                        onClick={() => {
-                          setUnStackValue(props.stakedBalance);
-                        }}
-                        style={{
-                          width: "10%",
-                          cursor: "pointer",
-                          marginRight: "30px",
-                        }}
-                      >
-                        Max
-                      </span>
+                     
                     </div>
-                    <div className="text-end mb-2 mt-3">
-                      {new BigNumber(unStackValue || 0)
-                        .times(props.deposit / 10000)
-                        .toString()}{" "}
-                      {props.title}
-                    </div>
+                 
                   </div>
                 </Modal.Body>
                 <Modal.Footer>
                   {load ? (
                     <button to="/" className="blue-box text-white" disabled>
-                      Panding
+                      Pending
                     </button>
                   ) : (
                     <button to="/" className="blue-box text-white">

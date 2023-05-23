@@ -43,7 +43,7 @@ const farms  = [
     lpSymbol: 'MILK',
     lpAddresses: {
       97: '',
-      56: '0xb09f514b3aF45B1E79D3ee025475D98D92882618', // MILK-BUSD LP
+      56: '0xc9bCF3f71E37579A4A42591B09c9dd93Dfe27965', // MILK-BUSD LP
     },
     tokenSymbol: 'MILK',
     tokenAddresses: {

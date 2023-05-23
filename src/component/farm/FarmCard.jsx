@@ -453,7 +453,7 @@ const FarmCard = (props) => {
     e.preventDefault();
     setLoad(true);
     try {
-      const done = await unStakeHandler(4, unStackValue);
+      const done = await unStakeHandler(pid, unStackValue);
       setLoad(false);
       setShowUnStack(false)
     } catch (error) {
@@ -464,6 +464,10 @@ const FarmCard = (props) => {
 
   function handleInputChange(event) {
     setUnStackValue(event.target.value);
+  }
+
+  function handleInputChange2(event) {
+    setStackValue(event.target.value);
   }
 
   return (
@@ -720,10 +724,7 @@ const FarmCard = (props) => {
                         className="form-control"
                         placeholder="0"
                         value={stackValue}
-                        onChange={(e) => {
-                          setStackValue(e.target.value);
-                          console.log(stackValue)
-                        }}
+                        onChange={handleInputChange2}
                         style={{ width: "40%", marginLeft: "10px" }}
                       />
                       {props.title}
@@ -773,24 +774,16 @@ const FarmCard = (props) => {
                       <input
                         type="number"
                         className="form-control"
-                        placeholder="0"
                         value={unStackValue}
-                        onChange={(e) => {
-                          setUnStackValue(e.target.value);
-                          console.log(stackValue)
-                        }}
+                        onChange={handleInputChange
+                        }
                         
                         style={{ width: "40%", marginLeft: "10px" }}
                       />
                       {props.title}
                     
                     </div>
-                    <div className="float-end mb-2 mt-3 text-end">
-                      {new BigNumber(unStackValue || 0)
-                        .times(props.deposit / 10000)
-                        .toString()}{" "}
-                      {props.title}
-                    </div>
+                    
                   </div>
                 </Modal.Body>
                 <Modal.Footer>
