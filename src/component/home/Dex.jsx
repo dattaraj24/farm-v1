@@ -18,7 +18,7 @@ const Dex = () => {
             <div className="partner-top"></div>
             <div className="d-flex mb-4 mt-3 justify-content-center text-center">
                 <div className="col-md-3 mbm-5">
-                  <a href="https://pancakeswap.finance/swap?outputCurrency=0xc9bCF3f71E37579A4A42591B09c9dd93Dfe27965&inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56" target="_blank">
+                  <a href="https://pancakeswap.finance/swap?outputCurrency=0xc9bCF3f71E37579A4A42591B09c9dd93Dfe27965&inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56"  target="_parent">
                     <img
                       src={require(`../../images/partner/pancake-swap.png`)}
                       alt="Demo"
@@ -27,7 +27,7 @@ const Dex = () => {
                   </a>
                 </div>{" "}
                 <div className="col-md-3 mbm-5">
-                  <a href="https://coincost.net/en/currency/milkshakeswap?from=search" target="_blank">
+                  <a href="https://coincost.net/en/currency/milkshakeswap?from=search"  target="_parent">
                     <img
                       src={require(`../../images/partner/coincost.png`)}
                       alt="Demo"
@@ -36,7 +36,7 @@ const Dex = () => {
                   </a>
                 </div>
                 <div className="col-md-3 mbm-5">
-                  <a href="https://app.1inch.io/#/56/unified/swap/BNB/MILK" target="_blank">
+                  <a href="https://app.1inch.io/#/56/unified/swap/BNB/MILK"  target="_parent">
                     <img
                       src={require(`../../images/partner/1inch-network.png`)}
                       alt="Demo"
@@ -45,7 +45,7 @@ const Dex = () => {
                   </a>
                 </div>
                 <div className="col-md-3 mbm-5">
-                  <a href="https://coincodex.com/crypto/milkshakeswap-finance/" target="_blank">
+                  <a href="https://coincodex.com/crypto/milkshakeswap-finance/"  target="_parent">
                     <img
                       src={require(`../../images/partner/coin-codex.png`)}
                       alt="Demo"
@@ -56,7 +56,7 @@ const Dex = () => {
               </div>
               <div className="d-flex mb-4 justify-content-center text-center">
                 <div className="col-md-4 mbm-5">
-                  <a href="https://flooz.trade/trade/0xc9bCF3f71E37579A4A42591B09c9dd93Dfe27965?refId=ikUONy" target="_blank">
+                  <a href="https://flooz.trade/trade/0xc9bCF3f71E37579A4A42591B09c9dd93Dfe27965?refId=ikUONy"  target="_parent">
                     <img
                       src={require(`../../images/partner/flooz.png`)}
                       alt="Demo"
@@ -65,7 +65,7 @@ const Dex = () => {
                   </a>
                 </div>{" "}
                 <div className="col-md-4 mbm-5">
-                  <a href="https://astrospaces.io/coins/bep20/0xc9bcf3f71e37579a4a42591b09c9dd93dfe27965" target="_blank">
+                  <a href="https://astrospaces.io/coins/bep20/0xc9bcf3f71e37579a4a42591b09c9dd93dfe27965"  target="_parent">
                     <img
                       src={require(`../../images/partner/atrospace.png`)}
                       alt="Demo"
@@ -74,7 +74,7 @@ const Dex = () => {
                   </a>
                 </div>
                 <div className="col-md-4 mbm-5">
-                  <a href="https://swap.arken.finance/tokens/bsc/0xc9bcf3f71e37579a4a42591b09c9dd93dfe27965" target="_blank">
+                  <a href="https://swap.arken.finance/tokens/bsc/0xc9bcf3f71e37579a4a42591b09c9dd93dfe27965"  target="_parent">
                     <img
                       src={require(`../../images/partner/arken.png`)}
                       alt="Demo"
@@ -96,7 +96,7 @@ const Dex = () => {
             <div className="partner-top"></div>
               <div className="d-flex mb-4 mt-4 justify-content-center text-center">
                 <div className="col-md-3 mbm-5">
-                  <a href="" target="_blank">
+                  <a href=""  target="_parent">
                     <img
                       src={require(`../../images/partner/gate.png`)}
                       alt="Demo"
@@ -105,7 +105,7 @@ const Dex = () => {
                   </a>
                 </div>
                 <div className="col-md-3 mbm-5">
-                  <a href="" target="_blank">
+                  <a href=""  target="_parent">
                     <img
                       src={require(`../../images/partner/coinbase.png`)}
                       alt="Demo"
@@ -114,7 +114,7 @@ const Dex = () => {
                   </a>
                 </div>
                 <div className="col-md-3 mbm-5">
-                  <a href="" target="_blank">
+                  <a href=""  target="_parent">
                     <img
                       src={require(`../../images/partner/binance-logo.png`)}
                       alt="Demo"

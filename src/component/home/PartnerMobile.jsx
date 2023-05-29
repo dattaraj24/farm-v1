@@ -17,7 +17,7 @@ const Partner = () => {
               <div className="row  row-cols-3">
                 {Data.map((data, index) => (
                   <div className="col-sm-2 m-10" key={index}>
-                    <a href={data.url} target="_blank">
+                    <a href={data.url}  target="_parent">
                       <img
                         src={require(`../../images/partner/${data.img}.png`)}
                         alt="Demo"

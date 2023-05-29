@@ -275,7 +275,7 @@ const FarmTab = () => {
                       totliquidity={totliquidity2 ? totliquidity2.busd : 0}
                       stakedBalance={userlpTokens[3].stakedBalance / wei}
                       roiFunction={roiFunction}
-                      pid={4}
+                      pid={3}
                     />
                     <FarmCard
                       title={lpTokens2[4].lpSymbol}
@@ -315,7 +315,7 @@ const FarmTab = () => {
                       totliquidity={totliquidity ? totliquidity.btc : 0}
                       stakedBalance={userlpTokens[5].stakedBalance / wei}
                       roiFunction={roiFunction}
-                      pid={4}
+                      pid={5}
                     />
                     <FarmCard
                       title={lpTokens2[6].lpSymbol}
@@ -335,7 +335,7 @@ const FarmTab = () => {
                       totliquidity={totliquidity2 ? totliquidity2.eth : 0}
                       stakedBalance={userlpTokens[6].stakedBalance / wei}
                       roiFunction={roiFunction}
-                      pid={4}
+                      pid={6}
                     />
                   </>
                 ) : (

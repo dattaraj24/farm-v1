@@ -51,16 +51,16 @@ const Header = () => {
                       <ul className="axil-submenu">
                         <li>
                           <a
-                            href="https://incredible-pithivier-a342b3.netlify.app/#/swap"
-                            target="_blank"
+                            href="https://milkshakeswap.finance/swap/#/swap"
+                             target="_parent"
                           >
                             Exchange
                           </a>
                         </li>
                         <li>
                           <a
-                            href="https://incredible-pithivier-a342b3.netlify.app/#/pool"
-                            target="_blank"
+                            href="https://milkshakeswap.finance/swap/#/pool"
+                             target="_parent"
                           >
                             Liquidity
                           </a>
@@ -78,7 +78,7 @@ const Header = () => {
                       </Link>
                     </li>
                     <li>
-                    <a href="https://staking.milkshakeswap.finance" target="_blank">
+                    <a href="https://milkshakeswap.finance/stake"  target="_parent">
                 Staking
               </a>
                     </li>

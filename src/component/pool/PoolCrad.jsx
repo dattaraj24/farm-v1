@@ -619,7 +619,7 @@ const FarmCard = (props) => {
                           className="btn-link"
                           href={`https://v2exchange.milkshakeswap.finance/#/add/${props.quoteTokenAdresses[56]}/0xc9bCF3f71E37579A4A42591B09c9dd93Dfe27965`}
                           // href="https://v2exchange.milkshakeswap.finance/#/add/0xe9e7cea3dedca5984780bafc599bd69add087d56/0xc9bCF3f71E37579A4A42591B09c9dd93Dfe27965"
-                          target="_blank"
+                           target="_parent"
                         >
                           {props.title}
                         </a>
@@ -746,7 +746,7 @@ const FarmCard = (props) => {
 
             <Modal show={showUnStack} onHide={handleCloseUnStack} size="md">
               <Modal.Header closeButton>
-                <div>Deposit {props.title} Tokens</div>
+                <div>Unstake {props.title} Tokens</div>
               </Modal.Header>
               <form onSubmit={handleSubmit2}>
                 <Modal.Body>

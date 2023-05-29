@@ -40,12 +40,12 @@ const Nav = () => {
           </Link>
           <ul className="axil-submenu">
             <li>
-              <a href="https://incredible-pithivier-a342b3.netlify.app/#/swap" target="_parent">
+              <a href="https://milkshakeswap.finance/swap/#/swap" target="_parent">
                 Exchange
               </a>
             </li>
             <li>
-              <a href="https://incredible-pithivier-a342b3.netlify.app/#/pool" target="_parent">
+              <a href="https://milkshakeswap.finance/swap/#/pool" target="_parent">
                 Liquidity
               </a>
             </li>
@@ -58,7 +58,7 @@ const Nav = () => {
           <Link to="/pool">Flavour Pool</Link>
         </li>
         <li>
-        <a target="_parent" href="https://staking.milkshakeswap.finance" >
+        <a target="_parent" href="https://milkshakeswap.finance/stake" >
                 staking
               </a>
         </li>
@@ -119,7 +119,7 @@ const Nav = () => {
             >
               <MdContentCopy />
             </CopyToClipboard>
-            <a href={bscScan} target="_blank">
+            <a href={bscScan}  target="_parent">
               <img
                 src={require("../../images/icon/bsc-scan.svg").default}
                 alt="bsc-scan"

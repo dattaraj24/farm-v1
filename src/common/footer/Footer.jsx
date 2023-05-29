@@ -21,15 +21,15 @@ const Footer = () => {
             <div className="col-xl-3">
               <ul className="d-flex justify-content-between text-center pd">
                 <li>
-                  <a href="https://milkshakeswap.gitbook.io/milkshake/faq" target="_blank">FAQ</a> 
+                  <a href="https://milkshakeswap.gitbook.io/milkshake/faq"  target="_parent">FAQ</a> 
                 </li>
                 <li>/</li>
                 <li>
-                  <a href="https://milkshakeswap.gitbook.io/milkshake/tokenomics/page-not-found" target="_blank">Tokenomics</a>
+                  <a href="https://milkshakeswap.gitbook.io/milkshake/tokenomics/page-not-found"  target="_parent">Tokenomics</a>
                 </li>
                 <li>/</li>
                 <li>
-                  <a href="https://milkshakeswap.gitbook.io/milkshake/" target="_blank">Docs</a>
+                  <a href="https://milkshakeswap.gitbook.io/milkshake/"  target="_parent">Docs</a>
                 </li>
               </ul>
             </div>
@@ -50,27 +50,27 @@ const Footer = () => {
             <div className="col-xl-4 col-md-12 mt-5">
               <ul className="d-flex social">
                 <li>
-                  <a href="https://t.me/milkshakeswap" target="_blank">
+                  <a href="https://t.me/milkshakeswap"  target="_parent">
                     <BsTelegram className="icon" />
                   </a>
                 </li>
                 <li>
-                  <a href="https://twitter.com/milkshakeswap" target="_blank">
+                  <a href="https://twitter.com/milkshakeswap"  target="_parent">
                     <BsTwitter className="icon" />
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com/milkshakeswap.finance/" target="_blank">
+                  <a href="https://www.instagram.com/milkshakeswap.finance/"  target="_parent">
                     <BsInstagram className="icon" />
                   </a>
                 </li>
                 <li>
-                  <a href="https://milkshakeswap.medium.com/" target="_blank">
+                  <a href="https://milkshakeswap.medium.com/"  target="_parent">
                     <BsMedium className="icon" />
                   </a>
                 </li>
                 <li>
-                  <a href="https://discord.com/channels/1034058598784978964/1034058599804190741" target="_blank">
+                  <a href="https://discord.com/channels/1034058598784978964/1034058599804190741"  target="_parent">
                     <BsDiscord className="icon" />
                   </a>
                 </li>

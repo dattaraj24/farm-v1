@@ -87,7 +87,7 @@ const HomeBanner = () => {
                     <a
                       href="https://cheery-cupcake-fba307.netlify.app/#/swap"
                       className="btn-banner"
-                      target="_blank"
+                       target="_parent"
                       rel="noreferrer"
                     >
                       Buy $Milk From Milkshakeswap
@@ -97,7 +97,7 @@ const HomeBanner = () => {
                     <a
                       href="https://bscscan.com/token/0xc9bcf3f71e37579a4a42591b09c9dd93dfe27965"
                       className="btn-connect"
-                      target="_blank"
+                       target="_parent"
                       rel="noreferrer"
                       style={{ textTransform: "capitalize" }}
                     >
@@ -107,7 +107,7 @@ const HomeBanner = () => {
                   <div className="col-lg-12 d-flex j-center mt-50 m-10">
                     <a
                       href="https://twitter.com/binancechain"
-                      target="_blank"
+                       target="_parent"
                       rel="noreferrer"
                     >
                       <img

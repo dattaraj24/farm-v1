@@ -17,7 +17,7 @@ const Partner = () => {
               <div className="d-flex mb-4">
                 {Data.slice(0, 6).map((data, index) => (
                   <div className="col-md-2 mbm-5" key={index}>
-                    <a href={data.url} target="_blank">
+                    <a href={data.url}  target="_parent">
                       <img
                         src={require(`../../images/partner/${data.img}.png`)}
                         alt="Demo"
@@ -42,7 +42,7 @@ const Partner = () => {
                 {toggle
                   ? Data.slice(6, 30).map((data, index) => (
                       <div className="col-md-2 mb-5" key={index}>
-                        <a href={data.url} target="_blank">
+                        <a href={data.url}  target="_parent">
                           <img
                             src={require(`../../images/partner/${data.img}.png`)}
                             alt="Demo"
