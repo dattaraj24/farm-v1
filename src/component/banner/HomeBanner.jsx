@@ -85,7 +85,7 @@ const HomeBanner = () => {
                 <div className="row mt-6 mt-5">
                   <div className="col-lg-12 d-flex j-center">
                     <a
-                      href="https://cheery-cupcake-fba307.netlify.app/#/swap"
+                      href="https://milkshakeswap.finance/swap/#/swap"
                       className="btn-banner"
                        target="_parent"
                       rel="noreferrer"
