@@ -51,7 +51,7 @@ const farms  = [
       56: '0xc9bCF3f71E37579A4A42591B09c9dd93Dfe27965',
     },
     quoteTokenSymbol: QuoteToken.CAKE,
-    quoteTokenAdresses: contracts.busd,
+    quoteTokenAdresses: contracts.cake,
   },
   {
     pid: 3,
