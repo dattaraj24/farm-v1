@@ -26,7 +26,7 @@ import msAbi from "../../abi/masterchef.json";
 // lp address
 // 0xaBCB20886B4749205198d627FF6ccFdffFe97112
 
-const FarmCard = (props) => {
+const PoolCard = (props) => {
   const [show, setShow] = useState(false);
   const [showStack, setShowStack] = useState(false);
   const [showUnStack, setShowUnStack] = useState(false);
@@ -799,4 +799,4 @@ const FarmCard = (props) => {
   );
 };
 
-export default FarmCard;
+export default PoolCard;
