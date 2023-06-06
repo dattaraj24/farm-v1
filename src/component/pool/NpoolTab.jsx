@@ -15,6 +15,7 @@ import {
 import CoinGecko from "coingecko-api";
 import BigNumber from "bignumber.js";
 import Cookies from "js-cookie";
+import FarmCard from "../farm/FarmCard";
 
 const FarmTab = () => {
   const [active, setActive] = useState(true);
