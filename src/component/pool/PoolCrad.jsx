@@ -714,9 +714,7 @@ const PoolCard = (props) => {
                         type="number"
                         class="form-control"
                         value={stackValue}
-                        onChange={(e) => {
-                          setStackValue(e.target.value);
-                        }}
+                        onChange={handleInputChange2}
                         style={{ width: "40%", marginLeft: "10px" }}
                       />
                       {props.title}
@@ -768,9 +766,7 @@ const PoolCard = (props) => {
                         class="form-control"
 
                         value={unStackValue}
-                        onChange={(e) => {
-                          setUnStackValue(e.target.value);
-                        }}
+                        onChange={handleInputChange2}
                         style={{ width: "40%", marginLeft: "10px" }}
                       />
                       {props.title}
