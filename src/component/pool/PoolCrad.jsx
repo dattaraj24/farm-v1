@@ -766,7 +766,7 @@ const PoolCard = (props) => {
                         class="form-control"
 
                         value={unStackValue}
-                        onChange={handleInputChange2}
+                        onChange={handleInputChange}
                         style={{ width: "40%", marginLeft: "10px" }}
                       />
                       {props.title}
