@@ -26,7 +26,7 @@ import msAbi from "../../abi/masterchef.json";
 // lp address
 // 0xaBCB20886B4749205198d627FF6ccFdffFe97112
 
-const PoolCard = (props) => {
+const FarmCard = (props) => {
   const [show, setShow] = useState(false);
   const [showStack, setShowStack] = useState(false);
   const [showUnStack, setShowUnStack] = useState(false);
@@ -74,28 +74,13 @@ const PoolCard = (props) => {
 
       // console.log(data.status, "data");
     } else {
-        // Connect to an Ethereum provider (e.g. MetaMask or Infura)
-        if (typeof window.ethereum !== 'undefined') {
-          // Use the injected Web3 provider
-          const web3 = new Web3(window.ethereum);
-          
-          // Request access to the user's MetaMask wallet
-          await window.ethereum.request({ method: 'eth_requestAccounts' });
-          
-          // Get the user's address
-          const accounts = await web3.eth.getAccounts();
-          const address = accounts[0];
-        
-          // Log the user's address
-          console.log(`Connected to wallet at address ${address}`);
-        } else {
-          // If Web3 is not injected, prompt the user to install MetaMask
-          console.log('Please install MetaMask or use in a wallet app to use this dApp!');
-        }
-           
-        const weeb3 = new Web3(window.ethereum);
-        
-              const provider = await weeb3.currentProvider;
+      const web3Modal = new Web3Modal({
+        network: "mainnet", // optional
+        cacheProvider: false, // optional
+        providerOptions, // required
+      });
+
+      const provider = await web3Modal.connect();
       // console.log(provider, "-==-=-=-=-provider=-=-=-=-=-")
       const web3 = new Web3(provider);
       const accounts = await web3.eth.getAccounts();
@@ -157,28 +142,13 @@ const PoolCard = (props) => {
       // const harvestHAndler = async (masterChefContract, pid, account) => {
       const masterChefAddress = "0x9c19eB54c759c9369C788D6554f08Bb6cAdab10d";
 
-          // Connect to an Ethereum provider (e.g. MetaMask or Infura)
-          if (typeof window.ethereum !== 'undefined') {
-            // Use the injected Web3 provider
-            const web3 = new Web3(window.ethereum);
-            
-            // Request access to the user's MetaMask wallet
-            await window.ethereum.request({ method: 'eth_requestAccounts' });
-            
-            // Get the user's address
-            const accounts = await web3.eth.getAccounts();
-            const address = accounts[0];
-          
-            // Log the user's address
-            console.log(`Connected to wallet at address ${address}`);
-          } else {
-            // If Web3 is not injected, prompt the user to install MetaMask
-            console.log('Please install MetaMask or use in a wallet app to use this dApp!');
-          }
-             
-          const weeb3 = new Web3(window.ethereum);
-          
-                const provider = await weeb3.currentProvider;
+      const web3Modal = new Web3Modal({
+        network: "mainnet", // optional
+        cacheProvider: false, // optional
+        providerOptions, // required
+      });
+
+      const provider = await web3Modal.connect();
       const web3 = new Web3(provider);
       const accounts = await web3.eth.getAccounts();
       const account = accounts[0];
@@ -229,28 +199,13 @@ const PoolCard = (props) => {
       const LpAddress = "0xaBCB20886B4749205198d627FF6ccFdffFe97112";
       const masterChefContractAddress =
         "0x9c19eB54c759c9369C788D6554f08Bb6cAdab10d";
-         // Connect to an Ethereum provider (e.g. MetaMask or Infura)
-         if (typeof window.ethereum !== 'undefined') {
-          // Use the injected Web3 provider
-          const web3 = new Web3(window.ethereum);
-          
-          // Request access to the user's MetaMask wallet
-          await window.ethereum.request({ method: 'eth_requestAccounts' });
-          
-          // Get the user's address
-          const accounts = await web3.eth.getAccounts();
-          const address = accounts[0];
-        
-          // Log the user's address
-          console.log(`Connected to wallet at address ${address}`);
-        } else {
-          // If Web3 is not injected, prompt the user to install MetaMask
-          console.log('Please install MetaMask or use in a wallet app to use this dApp!');
-        }
-           
-        const weeb3 = new Web3(window.ethereum);
-        
-              const provider = await weeb3.currentProvider;
+      const web3Modal = new Web3Modal({
+        network: "mainnet", // optional
+        cacheProvider: false, // optional
+        providerOptions, // required
+      });
+
+      const provider = await web3Modal.connect();
       // console.log(provider, "-==-=-=-=-provider=-=-=-=-=-")
       const web3 = new Web3(provider);
       const accounts = await web3.eth.getAccounts();
@@ -283,7 +238,12 @@ const PoolCard = (props) => {
         masterChefAddress
       );
 
-
+      const unstakeResEst = await masterChefContract.methods
+        .withdraw(
+          pid,
+          new BigNumber(amount).times(new BigNumber(10).pow(18)).toString()
+        )
+        .estimateGas({ from: userAccount });
       // console.log(await unstakeResEst, "unstakeRes");
 
       const unstakeRes = await masterChefContract.methods
@@ -293,28 +253,12 @@ const PoolCard = (props) => {
         )
         .send({ from: userAccount });
     } else {
-          // Connect to an Ethereum provider (e.g. MetaMask or Infura)
-          if (typeof window.ethereum !== 'undefined') {
-            // Use the injected Web3 provider
-            const web3 = new Web3(window.ethereum);
-            
-            // Request access to the user's MetaMask wallet
-            await window.ethereum.request({ method: 'eth_requestAccounts' });
-            
-            // Get the user's address
-            const accounts = await web3.eth.getAccounts();
-            const address = accounts[0];
-          
-            // Log the user's address
-            console.log(`Connected to wallet at address ${address}`);
-          } else {
-            // If Web3 is not injected, prompt the user to install MetaMask
-            console.log('Please install MetaMask or use in a wallet app to use this dApp!');
-          }
-             
-          const weeb3 = new Web3(window.ethereum);
-          
-                const provider = await weeb3.currentProvider;
+      const web3Modal = new Web3Modal({
+        network: "mainnet", // optional
+        cacheProvider: false, // optional
+        providerOptions, // required
+      });
+      const provider = await web3Modal.connect();
 
       const web3 = new Web3(provider);
       const accounts = await web3.eth.getAccounts();
@@ -355,28 +299,12 @@ const PoolCard = (props) => {
     } else {
       // console.log("ELSE");
       // console.log("lpAddress", props.lpAddresses[56]);
-         // Connect to an Ethereum provider (e.g. MetaMask or Infura)
-         if (typeof window.ethereum !== 'undefined') {
-          // Use the injected Web3 provider
-          const web3 = new Web3(window.ethereum);
-          
-          // Request access to the user's MetaMask wallet
-          await window.ethereum.request({ method: 'eth_requestAccounts' });
-          
-          // Get the user's address
-          const accounts = await web3.eth.getAccounts();
-          const address = accounts[0];
-        
-          // Log the user's address
-          console.log(`Connected to wallet at address ${address}`);
-        } else {
-          // If Web3 is not injected, prompt the user to install MetaMask
-          console.log('Please install MetaMask or use in a wallet app to use this dApp!');
-        }
-           
-        const weeb3 = new Web3(window.ethereum);
-        
-              const provider = await weeb3.currentProvider;
+      const web3Modal = new Web3Modal({
+        network: "mainnet", // optional
+        cacheProvider: false, // optional
+        providerOptions, // required
+      });
+      const provider = await web3Modal.connect();
 
       const web3 = new Web3(provider);
       const accounts = await web3.eth.getAccounts();
@@ -448,7 +376,6 @@ const PoolCard = (props) => {
       setShowUnStack(false);
     }
   };
-
   function handleInputChange(event) {
     setUnStackValue(event.target.value);
   }
@@ -456,7 +383,6 @@ const PoolCard = (props) => {
   function handleInputChange2(event) {
     setStackValue(event.target.value);
   }
-
   props.data("data");
 
   return (
@@ -619,7 +545,7 @@ const PoolCard = (props) => {
                           className="btn-link"
                           href={`https://v2exchange.milkshakeswap.finance/#/add/${props.quoteTokenAdresses[56]}/0xc9bCF3f71E37579A4A42591B09c9dd93Dfe27965`}
                           // href="https://v2exchange.milkshakeswap.finance/#/add/0xe9e7cea3dedca5984780bafc599bd69add087d56/0xc9bCF3f71E37579A4A42591B09c9dd93Dfe27965"
-                           target="_parent"
+                          target="_blank"
                         >
                           {props.title}
                         </a>
@@ -713,12 +639,13 @@ const PoolCard = (props) => {
                       <input
                         type="number"
                         class="form-control"
+                        placeholder="0"
                         value={stackValue}
                         onChange={handleInputChange2}
                         style={{ width: "40%", marginLeft: "10px" }}
                       />
                       {props.title}
-                     
+                    
                     </div>
                     <div className="text-end mb-2 mt-3">
                       {new BigNumber(stackValue || 0)
@@ -744,7 +671,7 @@ const PoolCard = (props) => {
 
             <Modal show={showUnStack} onHide={handleCloseUnStack} size="md">
               <Modal.Header closeButton>
-                <div>Unstake {props.title} Tokens</div>
+                <div>unstake {props.title} Tokens</div>
               </Modal.Header>
               <form onSubmit={handleSubmit2}>
                 <Modal.Body>
@@ -764,15 +691,20 @@ const PoolCard = (props) => {
                       <input
                         type="number"
                         class="form-control"
-
+                        placeholder="0"
                         value={unStackValue}
                         onChange={handleInputChange}
                         style={{ width: "40%", marginLeft: "10px" }}
                       />
                       {props.title}
-                     
+                      
                     </div>
-                 
+                    <div className="text-end mb-2 mt-3">
+                      {new BigNumber(unStackValue || 0)
+                        .times(props.deposit / 10000)
+                        .toString()}{" "}
+                      {props.title}
+                    </div>
                   </div>
                 </Modal.Body>
                 <Modal.Footer>
@@ -795,4 +727,4 @@ const PoolCard = (props) => {
   );
 };
 
-export default PoolCard;
+export default FarmCard;

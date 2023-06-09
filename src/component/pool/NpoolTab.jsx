@@ -15,7 +15,8 @@ import {
 import CoinGecko from "coingecko-api";
 import BigNumber from "bignumber.js";
 import Cookies from "js-cookie";
-import FarmCard from "../farm/FarmCard";
+
+
 
 const FarmTab = () => {
   const [active, setActive] = useState(true);
@@ -25,6 +26,8 @@ const FarmTab = () => {
   const [userlpTokens, setUserLptoken] = React.useState();
   const [totliquidity, setTotliquidity] = React.useState();
   const [isregistered2, setIsregistered] = React.useState(false);
+
+
 
   const access = useContext(ContextOneApp);
   const access2 = useContext(ContextTwoApp);
@@ -328,11 +331,10 @@ const FarmTab = () => {
                       totliquidity={totliquidity2 ? totliquidity2.busd : 0}
                       stakedBalance={userlpTokens[2].stakedBalance / wei}
                       roiFunction={roiFunction}
-                      pid={lpTokens2[2].pid}
+                      pid={2}
                       userLpData={userLpData}
                       data={getData}
                     />
-                   
                   </>
                 ) : (
                   <Spinner />
