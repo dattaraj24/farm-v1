@@ -43,7 +43,7 @@ const MobileFooter = () => {
         <li className="mobile-nav-li">
           <Link to="/pool">
             <img src={pool} alt="home" className="menu-img" />
-            <div style={{ fontSize: "8px" }}>Flavour Poll</div>
+            <div style={{ fontSize: "8px" }}>Flavour Po0l</div>
           </Link>
         </li>
         <li className="mobile-nav-li">
