@@ -76,7 +76,7 @@ const Stat = () => {
                     <Link to="/">New Milk/block</Link>
                   </h5>
                   <h5 className="title">
-                    <Link to="/">0.07</Link>
+                    <Link to="/">1.5</Link>
                   </h5>
                 </div>
               </div>
