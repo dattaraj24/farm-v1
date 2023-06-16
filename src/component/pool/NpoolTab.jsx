@@ -314,7 +314,7 @@ const FarmTab = () => {
                   <>
                     <PoolCard
                       title={lpTokens2[2].lpSymbol}
-                      apr={aprV ? aprV.milk : 0}
+                      apr={0.04}
                       deposit={lpTokens2[2].depositFeeBP}
                       milkEarn={parseFloat(
                         userlpTokens[2].earnings / wei
