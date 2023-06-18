@@ -372,6 +372,7 @@ const FarmCard = (props) => {
       setLoad(false);
       setShowUnStack(false);
     } catch (error) {
+      console.log(error)
       setLoad(false);
       setShowUnStack(false);
     }
