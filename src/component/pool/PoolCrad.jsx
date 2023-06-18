@@ -672,7 +672,7 @@ const FarmCard = (props) => {
 
             <Modal show={showUnStack} onHide={handleCloseUnStack} size="md">
               <Modal.Header closeButton>
-                <div>unstake {props.title} Tokens</div>
+                <div>Unstake {props.title} Tokens</div>
               </Modal.Header>
               <form onSubmit={handleSubmit2}>
                 <Modal.Body>
