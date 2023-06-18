@@ -241,7 +241,7 @@ const FarmCard = (props) => {
       const unstakeResEst = await masterChefContract.methods
         .withdraw(
           pid,
-          new BigNumber(amount).times(new BigNumber(10).pow(18)).toString()
+          ethers.utils.parseUnits(amount.toString(),18)
         )
         .estimateGas({ from: userAccount });
       // console.log(await unstakeResEst, "unstakeRes");
@@ -249,7 +249,7 @@ const FarmCard = (props) => {
       const unstakeRes = await masterChefContract.methods
         .withdraw(
           pid,
-          new BigNumber(amount).times(new BigNumber(10).pow(18)).toString()
+          ethers.utils.parseUnits(amount.toString(),18)
         )
         .send({ from: userAccount });
     } else {
