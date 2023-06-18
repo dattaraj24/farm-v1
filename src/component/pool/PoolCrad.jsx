@@ -184,12 +184,12 @@ const FarmCard = (props) => {
 
       // stake
       // const stk = await masterChefContract.methods
-      //   .deposit(pid, new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
+      //   .deposit(pid,  ethers.utils.parseUnits(amount.toString(),18))
       //   .send({ from: userAccount })
       const stk = await masterChefContract.methods
         .deposit(
           pid,
-          new BigNumber(amount).times(new BigNumber(10).pow(18)).toString()
+           ethers.utils.parseUnits(amount.toString(),18)
         )
         .send({ from: userAccount });
       // console.log(stk, "stk");
@@ -222,7 +222,7 @@ const FarmCard = (props) => {
       const stk = await masterChefContract.methods
         .deposit(
           pid,
-          new BigNumber(amount).times(new BigNumber(10).pow(18)).toString()
+           ethers.utils.parseUnits(amount.toString(),18)
         )
         .send({ from: account });
       // console.log(stk, "stk");
@@ -272,7 +272,7 @@ const FarmCard = (props) => {
       const unstakeRes = await masterChefContract.methods
         .withdraw(
           pid,
-          new BigNumber(amount).times(new BigNumber(10).pow(18)).toString()
+           ethers.utils.parseUnits(amount.toString(),18)
         )
         .send({ from: account });
       // console.log(await unstakeRes, "unstakeRes");

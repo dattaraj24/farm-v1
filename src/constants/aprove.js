@@ -58,7 +58,7 @@ const stackHandler = (pid, amount) => {
 
         // stake 
         const stk = await masterChefContract.methods
-        .deposit(pid, new BigNumber(amount).times(new BigNumber(10).pow(18)).toString()) 
+        .deposit(pid,  ethers.utils.parseUnits(amount.toString(),18)) 
         .send({ from: account })
         // console.log(stk,"stk")
         return stk;
