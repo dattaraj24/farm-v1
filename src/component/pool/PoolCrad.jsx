@@ -648,12 +648,7 @@ const FarmCard = (props) => {
                       {props.title}
                     
                     </div>
-                    <div className="text-end mb-2 mt-3">
-                      {new BigNumber(stackValue || 0)
-                        .times(props.deposit / 10000)
-                        .toString()}{" "}
-                      {props.title}
-                    </div>
+      
                   </div>
                 </Modal.Body>
                 <Modal.Footer>
